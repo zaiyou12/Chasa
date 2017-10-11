@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PuzzleOnclickController : MonoBehaviour {
 
 	public GameObject[] puzzleObjects;
+	public FaderManager faderManager;
 
 	void Update(){
 		if(Input.GetMouseButtonDown(0)){
@@ -17,6 +18,7 @@ public class PuzzleOnclickController : MonoBehaviour {
 					hit.transform.Rotate(new Vector3 (0f, 0f, 90f));
 					if(hit.transform.eulerAngles.y < 1 || hit.transform.eulerAngles.y > -1){
 						if(checkCleared()){
+							faderManager.FadeIn();
 							SceneManager.LoadScene(0);
 						}
 					}

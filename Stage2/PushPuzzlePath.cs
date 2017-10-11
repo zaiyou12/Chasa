@@ -10,6 +10,7 @@ public class PushPuzzlePath : MonoBehaviour {
 	public PlayerStage2Controller player;
 	public float BlockSize;
 	public float deltaTime = 1.5f;
+	public FaderManager faderManager;
 
 	private Vector2[] objectPos = new Vector2[]{new Vector2(2,3), 
 												new Vector2(2,4), 
@@ -106,6 +107,7 @@ public class PushPuzzlePath : MonoBehaviour {
 					return;
 				}
 			}
+			faderManager.FadeIn();
 			SceneManager.LoadScene(0);
 		}
 	}

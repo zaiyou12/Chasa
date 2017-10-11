@@ -8,6 +8,7 @@ public class LevelSceneManager : MonoBehaviour {
 	public CameraMove cameraMove;
 	public CubeMove cubeMove;
 	public float deltaTime;
+	public FaderManager faderManager;
 	
 	private bool isPlayerTurn;
 
@@ -49,7 +50,8 @@ public class LevelSceneManager : MonoBehaviour {
 	IEnumerator WaitForSceneStart(int levelNum){
 		yield return new WaitForSeconds (deltaTime);
 		cameraMove.toFocusPoint(deltaTime);
-		yield return new WaitForSeconds (1f);
+		faderManager.FadeIn();
+		yield return new WaitForSeconds (2f);
 		SceneManager.LoadScene(levelNum+1);
 	}
 }
